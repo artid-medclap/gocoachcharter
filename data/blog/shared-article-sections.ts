@@ -7,7 +7,7 @@ export const blogArticleWhyChooseSection: BlogArticleSection = {
     {
       type: "paragraph",
       text:
-        "Transportation for a large group needs reliable capacity, clear scheduling, and a team that understands Alberta routes. Go Coach Charters plans charters around your pickup points, stops, and return times—not the other way around.",
+        "Transportation for a large group needs reliable capacity, clear scheduling, and a team that understands Alberta routes. Go Coach Charters plans charters around your pickup points, stops, and return times, not the other way around.",
     },
     {
       type: "paragraph",
@@ -41,7 +41,7 @@ export const blogArticleFaqSections: BlogArticleSection[] = [
       {
         type: "paragraph",
         text:
-          "Capacity depends on the coach you book. Go Coach Charters offers vehicles from smaller mini coaches around 18 seats up to full-size motorcoaches that can carry roughly 50 to 56 passengers. There is no strict minimum group size for a charter—we can match a smaller group to a right-sized coach.",
+          "Capacity depends on the coach you book. Go Coach Charters offers vehicles from smaller mini coaches around 18 seats up to full-size motorcoaches that can carry roughly 50 to 56 passengers. There is no strict minimum group size for a charter, we can match a smaller group to a right-sized coach.",
       },
     ],
   },

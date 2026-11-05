@@ -17,7 +17,7 @@ const WHY_ITEMS = [
     title: "Alberta-first itineraries",
     highlight: "City guides, seasonal events & Rockies routes",
     description:
-      "Practical guides for Edmonton, Calgary, the Rockies, and seasonal events—written with real group travel in mind.",
+      "Practical guides for Edmonton, Calgary, the Rockies, and seasonal events, written with real group travel in mind.",
     image: siteMedia.services.scenicTours,
     imageAlt: "Scenic Alberta charter tour",
   },

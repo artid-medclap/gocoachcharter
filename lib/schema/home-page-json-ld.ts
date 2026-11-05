@@ -14,7 +14,7 @@ const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const WEBPAGE_ID = `${HOME_URL}#webpage`;
 
-/** Shown in the reviews section — keep in sync with CustomerReviewsSection. */
+/** Shown in the reviews section: keep in sync with CustomerReviewsSection. */
 const GOOGLE_AGGREGATE_RATING = {
   ratingValue: 4.9,
   reviewCount: 100,

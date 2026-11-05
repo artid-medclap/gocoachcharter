@@ -17,7 +17,6 @@ export function Navbar() {
   const { isOpen, toggle, close } = useMobileMenu();
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -50,8 +49,10 @@ export function Navbar() {
                     type="button"
                     onClick={() => setOpenDropdown((prev) => !prev)}
                     className={cn(
-                      "group/nav relative flex items-center gap-1 py-2 text-md font-medium transition-colors hover:text-primary-600",
-                      active || openDropdown ? "text-primary-600" : "text-foreground"
+                      "group/nav relative flex items-center gap-1 py-2 text-md font-medium transition-colors",
+                      active || openDropdown
+                        ? "text-primary-600"
+                        : "text-foreground hover:text-primary-600",
                     )}
                     aria-expanded={openDropdown}
                   >
@@ -64,8 +65,9 @@ export function Navbar() {
                     />
                     <span
                       className={cn(
-                        "absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-primary-600 transition-all duration-300",
-                        active || openDropdown ? "w-full" : "w-0 group-hover/nav:w-full"
+                        "absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-300",
+                        "bg-primary-600",
+                        active || openDropdown ? "w-full" : "w-0 group-hover/nav:w-full",
                       )}
                     />
                   </button>
@@ -78,7 +80,7 @@ export function Navbar() {
                         : "pointer-events-none -translate-y-1 opacity-0"
                     )}
                   >
-                    <div className="overflow-hidden rounded-2xl border border-border bg-background p-2 shadow-xl">
+                    <div className="overflow-hidden rounded-2xl  bg-background p-2 shadow-xl">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
@@ -101,15 +103,18 @@ export function Navbar() {
                 key={item.label}
                 href={item.href}
                 className={cn(
-                  "group/nav relative py-2 text-md font-medium transition-colors hover:text-primary-600",
-                  active ? "text-primary-600" : "text-foreground"
+                  "group/nav relative py-2 text-md font-medium transition-colors",
+                  active
+                    ? "text-primary-600"
+                    : "text-foreground hover:text-primary-600",
                 )}
               >
                 {item.label}
                 <span
                   className={cn(
-                    "absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-primary-600 transition-all duration-300",
-                    active ? "w-full" : "w-0 group-hover/nav:w-full"
+                    "absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-300",
+                    "bg-primary-600",
+                    active ? "w-full" : "w-0 group-hover/nav:w-full",
                   )}
                 />
               </Link>
@@ -120,13 +125,20 @@ export function Navbar() {
         <div className="hidden items-center gap-6 lg:flex">
           <a
             href={contactPhone.href}
-            className="flex items-center gap-2 text-md font-semibold text-foreground transition-colors hover:text-primary-600"
+            className={cn(
+              "flex items-center gap-2 text-md font-semibold transition-colors",
+              "text-foreground hover:text-primary-600",
+            )}
           >
             <Phone className="h-4 w-4" />
             {contactPhone.label}
           </a>
 
-          <Button href={homeSections.getStarted} size="sm">
+          <Button
+            href={homeSections.getStarted}
+            size="sm"
+            className="border border-transparent hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]"
+          >
             Get A Quote
           </Button>
         </div>
@@ -134,7 +146,10 @@ export function Navbar() {
         <button
           type="button"
           onClick={toggle}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
+          className={cn(
+            "flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden",
+            "border-border text-foreground",
+          )}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >

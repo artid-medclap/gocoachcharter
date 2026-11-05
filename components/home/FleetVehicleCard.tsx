@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -40,19 +40,45 @@ export function FleetVehicleCard({ vehicle }: FleetVehicleCardProps) {
     ...vehicle.gallery,
   ];
   const [activeIndex, setActiveIndex] = useState(0);
-  const active = slides[activeIndex] ?? slides[0];
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused || slides.length < 2) return;
+
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (media.matches) return;
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % slides.length);
+    }, 2200);
+
+    return () => window.clearInterval(timer);
+  }, [paused, slides.length, activeIndex]);
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-primary-100 bg-white shadow-[0_12px_36px_rgba(53,0,20,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-[0_22px_50px_rgba(53,0,20,0.12)]">
       <div className="p-3 pb-0 sm:p-4 sm:pb-0">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-primary-50">
-          <Image
-            src={active.src}
-            alt={active.alt}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover object-center"
-          />
+        <div
+          className="relative aspect-[4/3] overflow-hidden rounded-xl bg-primary-50"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <div
+            className="flex h-full transition-transform duration-500 ease-out motion-reduce:transition-none"
+            style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+          >
+            {slides.map((slide, index) => (
+              <div key={`${slide.src}-${index}`} className="relative h-full min-w-full">
+                <Image
+                  src={slide.src}
+                  alt={index === activeIndex ? slide.alt : ""}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mt-2.5 grid h-12 grid-cols-4 gap-2 sm:h-14">
@@ -103,7 +129,7 @@ export function FleetVehicleCard({ vehicle }: FleetVehicleCardProps) {
           </div>
         </div>
 
-        <p className="mt-5 text-sm font-semibold text-primary-950">Amenities</p>
+        <p className=" flex  justify-center mt-5 text-sm font-semibold text-primary-950">Amenities</p>
         <ul className="mt-3 grid min-h-[5.5rem] flex-1 grid-cols-2 content-start gap-x-3 gap-y-2.5">
           {vehicle.amenities.map((id) => {
             const amenity = AMENITY_META[id];

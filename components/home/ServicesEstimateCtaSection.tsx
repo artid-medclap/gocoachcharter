@@ -1,72 +1,128 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { Badge } from "@/components/shared/Badge";
 import { Container } from "@/components/shared/Container";
-import { primaryButtonClass } from "@/lib/constants";
+import { homeSections } from "@/data/navigation";
 import { siteMedia } from "@/lib/site-media";
+import { sectionTitleClass } from "@/lib/typography";
 import { cn } from "@/lib/utils";
-import { sectionTitleInvertedClass } from "@/lib/typography";
 
 export function ServicesEstimateCtaSection() {
   return (
     <section
-      className="relative isolate w-full overflow-hidden bg-primary-950"
+      className="relative isolate w-full overflow-hidden bg-white"
       aria-label="Get a charter bus rental estimate"
     >
       <Image
-        src={siteMedia.commitment.servicesCtaBand}
+        src={siteMedia.home.estimateRoadBus}
         alt=""
         fill
-        priority
         sizes="100vw"
-        className="object-cover object-center brightness-[1.02] contrast-[1.03]"
+        className="object-cover object-right-bottom lg:object-fill"
+        priority
       />
 
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-primary-950/82 via-primary-900/38 to-primary-950/10"
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-t from-primary-950/35 via-transparent to-primary-950/15"
+        className="absolute inset-0 z-[1] bg-[#610018]/70 lg:hidden"
       />
 
-      <Badge
-        tone="neutral"
-        className="absolute left-4 top-4 z-20 w-fit max-w-[calc(100%-2rem)] border border-white/40 bg-white/90 px-3 py-1.5 text-[0.6875rem] font-semibold leading-snug text-primary-900 shadow-[0_4px_16px_rgba(0,0,0,0.12)] backdrop-blur-sm min-[400px]:px-4 min-[400px]:text-xs min-[400px]:leading-normal sm:left-6 sm:top-6 sm:max-w-[calc(100%-3rem)] sm:px-4 sm:py-2 sm:text-sm md:max-w-none md:whitespace-nowrap lg:left-8 lg:top-8"
+      <svg
+        aria-hidden
+        viewBox="0 0 64 86"
+        className="pointer-events-none absolute left-[32%] bottom-[11%] z-10 hidden h-[6.25rem] w-[4.75rem] lg:block"
       >
-        Should We Add An Average Charter Bus Cost Calculator Here For Visitors?
-      </Badge>
+        <defs>
+          <radialGradient id="estimate-pin-body" cx="34%" cy="28%" r="72%">
+            <stop offset="0%" stopColor="#d13a52" />
+            <stop offset="48%" stopColor="#9a1633" />
+            <stop offset="100%" stopColor="#610018" />
+          </radialGradient>
+        </defs>
+        <ellipse cx="32" cy="82.5" rx="11" ry="3.2" fill="rgba(0,0,0,0.2)" />
+        <path
+          d="M32 80S6 48 6 30a26 26 0 1 1 52 0c0 18-26 50-26 50Z"
+          fill="url(#estimate-pin-body)"
+        />
+        <circle cx="32" cy="28" r="10.5" fill="white" />
+      </svg>
 
-      <Container className="relative">
-        <div
-          className="flex min-h-[min(420px,85dvh)] flex-col items-center justify-center gap-5 px-1 pb-12 pt-[5.75rem] text-center min-[400px]:gap-6 min-[400px]:pt-24 sm:min-h-[460px] sm:gap-8 sm:px-0 sm:py-20 sm:pt-20 lg:min-h-[500px] lg:flex-row lg:justify-between lg:gap-14 lg:py-24 lg:pt-20 lg:text-left"
-        >
-          <div className="max-w-3xl capitalize">
-            <h2 className={sectionTitleInvertedClass}>
-              Get an Estimate for Your{" "}
-              <span className="text-primary-100">Charter Bus Rental</span>
+      <Container className="relative z-10 hidden h-full lg:block">
+        <div className="relative min-h-[560px] lg:h-full lg:min-h-[600px]">
+          <div className="relative z-20 max-w-xl lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2">
+            <Badge
+              tone="neutral"
+              className="w-fit whitespace-nowrap border border-[#610018]/15 bg-white px-5 py-2.5 text-sm font-semibold text-[#610018] shadow-[0_4px_16px_rgba(97,0,24,0.06)]"
+            >
+              Please Share The Calculator Details
+            </Badge>
+
+            <h2 className={cn(sectionTitleClass, "mt-8 max-w-[35rem] text-[#610018] lg:text-[2.5rem]")}>
+              Get an Estimate for
+              <br />
+              Your Charter Bus Rental
             </h2>
 
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.4)] sm:text-base sm:leading-8">
-              Enter your trip details to get an estimated charter bus rental cost
-              based on your travel distance, trip duration, and number of buses.
+            <p className="mt-2 max-w-md text-xs leading-5 text-black sm:text-sm sm:leading-6">
+              Enter your trip details to get an estimated charter bus rental cost based on your
+              travel distance, trip duration, and number of buses.
             </p>
-          </div>
 
-          <div className="shrink-0">
-            <button
-              type="button"
+            <Link
+              href={homeSections.getStarted}
               className={cn(
-                "group min-h-14 w-full max-w-md cursor-default gap-3 px-6 py-4 text-xs font-extrabold uppercase tracking-[0.04em] sm:min-h-16 sm:w-auto sm:min-w-[300px] sm:gap-4 sm:px-10 sm:py-5 sm:text-sm sm:tracking-[0.05em] md:min-w-[340px]",
-                primaryButtonClass
+                "group mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-full",
+                "bg-[#610018] px-5 py-2.5 text-xs font-bold text-white sm:text-sm",
+                "border border-transparent transition-colors duration-200 hover:border-[#610018] hover:bg-white hover:text-[#610018]",
+                "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#610018]",
               )}
             >
               Calculate Bus Rental Cost
-              <ArrowUpRight className="h-5 w-5" aria-hidden />
-            </button>
+              <ArrowRight
+                className="h-4 w-4 text-current transition-transform group-hover:translate-x-0.5"
+                aria-hidden
+              />
+            </Link>
           </div>
+        </div>
+      </Container>
+
+      <Container className="relative z-10 lg:hidden">
+        <div className="flex min-h-[34rem] flex-col items-center px-1 pb-48 pt-12 text-center sm:min-h-[38rem] sm:px-0 sm:pb-56 sm:pt-16">
+          <Badge
+            tone="neutral"
+            className="w-fit max-w-full border border-[#610018]/15 bg-white px-4 py-2 text-[0.7rem] font-semibold leading-snug text-[#610018] shadow-[0_4px_16px_rgba(97,0,24,0.06)] sm:px-5 sm:text-sm"
+          >
+            Please Share The Calculator Details
+          </Badge>
+
+          <h2 className={cn(sectionTitleClass, "mt-8 max-w-[20rem] text-[#610018] sm:max-w-md")}>
+            Get an Estimate for
+            <br />
+            Your Charter Bus Rental
+          </h2>
+
+          <p className="mt-4 max-w-md text-sm leading-6 text-white sm:mt-5 sm:text-base sm:leading-7">
+            Enter your trip details to get an estimated charter bus rental cost based on your
+            travel distance, trip duration, and number of buses.
+          </p>
+
+          <Link
+            href={homeSections.getStarted}
+            className={cn(
+              "group mt-8 inline-flex min-h-12 w-full max-w-xs items-center justify-center gap-2 rounded-full",
+              "bg-[#610018] px-6 py-3 text-sm font-bold text-white",
+              "border border-white/40 transition-colors duration-200 hover:border-white hover:bg-white hover:text-[#610018]",
+            )}
+          >
+            Calculate Bus Rental Cost
+            <ArrowRight
+              className="h-4 w-4 text-current transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </Link>
         </div>
       </Container>
     </section>

@@ -9,7 +9,7 @@ type BlogRichArticleLayoutProps = {
   children?: ReactNode;
 };
 
-/** Shared with grid column — keeps TOC and body aligned with no overlap */
+/** Shared with grid column: keeps TOC and body aligned with no overlap */
 const TOC_COLUMN = "16rem";
 
 export function BlogRichArticleLayout({ article, children }: BlogRichArticleLayoutProps) {

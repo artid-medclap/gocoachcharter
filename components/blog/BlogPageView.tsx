@@ -84,7 +84,7 @@ export function BlogPageView() {
                   <SectionTitleAccent>From Our Team</SectionTitleAccent>
                 </>
               }
-              description="Search titles or browse below—every post opens in its own URL for easy sharing."
+              description="Search titles or browse below, every post opens in its own URL for easy sharing."
             />
 
             <label className="relative mt-8 w-full max-w-md">

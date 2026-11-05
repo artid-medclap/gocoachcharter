@@ -3,7 +3,7 @@ export const SITE_TAGLINE = "Book bus tickets & coach tours in minutes";
 export const SITE_DESCRIPTION =
   "Search, compare, and book bus tickets and multi-day coach tours across 500+ routes with verified operators, real-time tracking, and a best price guarantee.";
 
-// Placeholder — replace with the production domain before deploying.
+// Placeholder: replace with the production domain before deploying.
 export const SITE_URL = "https://www.gocoach.com";
 
 export const CONTACT_EMAIL = "info@gocoach.ca";
@@ -36,7 +36,7 @@ export const FOOTER_SOCIAL: { platform: SocialPlatform; label: string }[] = [
   { platform: "youtube", label: "YouTube" },
 ];
 
-/** Primary CTA — default darker burgundy; hover brand #7a011f (simple color swap). */
+/** Primary CTA: default darker burgundy; hover brand #7a011f (simple color swap). */
 export const primaryButtonClass =
   "inline-flex items-center justify-center gap-2 rounded-full bg-[#610018] font-bold text-white shadow-sm transition-colors duration-200 hover:bg-[#7a011f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7a011f] disabled:pointer-events-none disabled:opacity-50";
 
@@ -44,7 +44,7 @@ export const primaryButtonClass =
 export const frostedTrustSurfaceClass =
   "border-white/35 bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-md backdrop-saturate-150 supports-[backdrop-filter]:bg-white/12";
 
-/** Light frosted pill on the hero — matches marketing trust bar over the bus photo. */
+/** Light frosted pill on the hero: matches marketing trust bar over the bus photo. */
 export const heroTrustBarSurfaceClass =
   "border border-white/90 bg-gradient-to-t from-primary-100/55 via-white/65 to-white/75 shadow-[0_16px_48px_-12px_rgba(122,1,31,0.22)] backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:from-primary-100/45 supports-[backdrop-filter]:via-white/60 supports-[backdrop-filter]:to-white/72";
 

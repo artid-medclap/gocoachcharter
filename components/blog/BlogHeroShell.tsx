@@ -24,7 +24,7 @@ type BlogHeroShellProps = {
   imageAlt?: string;
 };
 
-/** Shared full-bleed hero used on `/blog` and `/blog/[slug]` — same image, overlay, and spacing */
+/** Shared full-bleed hero used on `/blog` and `/blog/[slug]`: same image, overlay, and spacing */
 export function BlogHeroShell({
   children,
   className,

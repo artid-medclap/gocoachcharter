@@ -35,7 +35,7 @@ export const fleet: FleetVehicle[] = [
     name: "Large Coach",
     image: siteMedia.fleet.motorcoachMaroon,
     imageAlt: "Go Coach large motorcoach parked and ready for group travel",
-    capacity: "52–56 passengers",
+    capacity: "52-56 passengers",
     description:
       "Spacious and comfortable transportation for large groups, with plenty of seating and luggage space.",
     amenities: largeCoachAmenities,
@@ -59,7 +59,7 @@ export const fleet: FleetVehicle[] = [
     name: "Full-Size Coach",
     image: siteMedia.fleet.motorCoach,
     imageAlt: "Go Coach full-size charter coach",
-    capacity: "36–56 passengers",
+    capacity: "36-56 passengers",
     description:
       "A comfortable choice for medium to large groups, with ample space for passengers and luggage.",
     amenities: largeCoachAmenities,

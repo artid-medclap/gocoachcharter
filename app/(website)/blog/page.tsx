@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Go Coach Charters Blog",
     description:
-      "Travel ideas and group charter insights for Alberta—events, destinations, and planning guides.",
+      "Travel ideas and group charter insights for Alberta, events, destinations, and planning guides.",
     url: "/blog",
   },
 };

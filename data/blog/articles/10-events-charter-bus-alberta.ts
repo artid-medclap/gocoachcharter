@@ -262,7 +262,7 @@ export const tenEventsCharterBusAlbertaArticle: BlogRichArticle = {
         {
           type: "paragraph",
           text:
-            "Capacity depends on the coach you book. Go Coach Charters offers vehicles from smaller mini coaches around 18 seats up to full-size motorcoaches that can carry roughly 50 to 56 passengers. There is no strict minimum group size for a charter—we can match a smaller group to a right-sized coach so you are not paying for empty seats.",
+            "Capacity depends on the coach you book. Go Coach Charters offers vehicles from smaller mini coaches around 18 seats up to full-size motorcoaches that can carry roughly 50 to 56 passengers. There is no strict minimum group size for a charter, we can match a smaller group to a right-sized coach so you are not paying for empty seats.",
         },
       ],
     },

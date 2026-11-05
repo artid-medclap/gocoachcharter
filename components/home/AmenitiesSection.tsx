@@ -42,7 +42,7 @@ function FeatureSet({ duplicate = false }: { duplicate?: boolean }) {
       {ONBOARD_FEATURES.map(({ icon: Icon, title }) => (
         <li
           key={`${duplicate ? "dup" : "orig"}-${title}`}
-          className="flex w-[7.5rem] shrink-0 sm:w-[8.5rem] lg:w-[9.5rem]"
+          className="flex w-[8.5rem] shrink-0 sm:w-[8.5rem] lg:w-[9.5rem]"
         >
           <article className="group flex w-full flex-col items-center gap-2 text-center">
             <span
@@ -56,7 +56,7 @@ function FeatureSet({ duplicate = false }: { duplicate?: boolean }) {
             </span>
            
               <h3
-                className="text-[0.725rem] font-bold leading-sung tracking-[-0.01em] text-primary-950 break-words min-[400px]:text-[0.175rem] sm:text-base lg:text-[0.9375rem]"
+                className="break-words text-sm font-bold leading-snug tracking-[-0.01em] text-primary-950 min-[400px]:text-[0.9375rem] sm:text-base lg:text-[0.9375rem]"
               >
                 {title}
               </h3>

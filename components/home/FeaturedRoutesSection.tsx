@@ -93,7 +93,7 @@ export function FeaturedRoutesSection() {
       sectionName={featuredRoutesSection.name}
       tone="white"
       decorated
-      className="overflow-hidden border-b border-primary-100/90"
+      className="hidden overflow-hidden border-b border-primary-100/90 lg:block"
     >
       <Container className="relative">
         <div

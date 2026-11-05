@@ -7,7 +7,7 @@ export const bodyTextClass =
 export const bodyTextSmClass =
   "text-[0.8125rem] leading-5 text-body-text sm:text-sm sm:leading-6 md:text-base md:leading-7";
 
-/** Primary section titles (h2) — homepage sections */
+/** Primary section titles (h2): homepage sections */
 export const sectionTitleClass = cn(
   "text-balance font-semibold tracking-[-0.03em]",
   "text-[1.5rem] leading-[1.15] min-[380px]:text-[1.625rem]",
@@ -26,7 +26,7 @@ export const sectionTitleInvertedClass = cn(
   "text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
 );
 
-/** Hero h1 — scales smoothly from small phones to desktop */
+/** Hero h1: scales smoothly from small phones to desktop */
 export const heroTitleClass = cn(
   "text-balance font-medium tracking-[-0.02em] [word-spacing:normal]",
   "text-[1.875rem] leading-[1.12] min-[380px]:text-[2.125rem]",
@@ -37,7 +37,7 @@ export const heroTitleClass = cn(
 /** Stacked lines inside an h2 (consistent vertical rhythm) */
 export const sectionTitleStackClass = "flex flex-col gap-1 sm:gap-1.5";
 
-/** Accent line in a section title — no extra top margin (use stack gap instead) */
+/** Accent line in a section title: no extra top margin (use stack gap instead) */
 export const sectionTitleAccentClass = "block mt-0";
 
 export const sectionTitleAccentOnDarkClass = "text-primary-200";

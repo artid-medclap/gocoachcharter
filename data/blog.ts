@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     body: [
       "From corporate retreats to stadium concerts, Alberta groups travel farther and more often than many realize. A charter bus keeps everyone on one schedule, cuts parking headaches, and lets the whole group arrive together.",
       "Weddings, sports tournaments, school trips, trade shows, and festival weekends are all strong fits. If your itinerary has multiple stops or tight timing, motorcoach travel is often the simplest way to move a crowd.",
-      "Go Coach Charters serves Edmonton, Calgary, and routes across Alberta. Request a quote with your dates, headcount, and pickup points—we will help you match the right coach to your event.",
+      "Go Coach Charters serves Edmonton, Calgary, and routes across Alberta. Request a quote with your dates, headcount, and pickup points, we will help you match the right coach to your event.",
     ],
     richArticle: tenEventsCharterBusAlbertaArticle,
   },
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     body: [
       "Stampede week fills hotels and roadways fast. Lock in accommodation and ground transport before prices spike, especially if you are coming from Edmonton or northern Alberta.",
       "Mix rodeo, evening concerts, and Midway time with realistic walking distances. A charter keeps your group together after late nights and busy transit hubs.",
-      "Go Coach runs Edmonton–Calgary and regional charters year-round. Share your Stampede dates and group size for a tailored quote.",
+      "Go Coach runs Edmonton-Calgary and regional charters year-round. Share your Stampede dates and group size for a tailored quote.",
     ],
   },
   {
@@ -76,7 +76,7 @@ export const blogPosts: BlogPost[] = [
     imageSrc: siteMedia.services.scenicTours,
     imageAlt: "Scenic mountain highway in Alberta",
     body: [
-      "Edmonton to Jasper is a full-day journey when you include sightseeing—plan for roughly four hours of driving each way, plus stops at lakes, viewpoints, and town time.",
+      "Edmonton to Jasper is a full-day journey when you include sightseeing, plan for roughly four hours of driving each way, plus stops at lakes, viewpoints, and town time.",
       "Groups often anchor on Maligne Lake, the SkyTram, and easy valley trails. A coach handles mountain road fatigue so everyone can enjoy the views.",
       "Tell us your ideal pickup window, passenger count, and must-see stops. We will align vehicle type and driver scheduling with your itinerary.",
     ],
@@ -93,7 +93,7 @@ export const blogPosts: BlogPost[] = [
     body: [
       "Summer in Alberta means long daylight, alpine lakes, and festival weekends from the foothills to the Badlands.",
       "Banff and Lake Louise stay iconic, but consider lesser-known shorelines, provincial parks, and prairie events for a balanced road trip.",
-      "Moving a group between multiple parks is where charter service shines—one luggage hold, one meeting point, and a driver who knows highway timing.",
+      "Moving a group between multiple parks is where charter service shines, one luggage hold, one meeting point, and a driver who knows highway timing.",
     ],
   },
   {
@@ -106,7 +106,7 @@ export const blogPosts: BlogPost[] = [
     imageSrc: siteMedia.services.scenicTours,
     imageAlt: "Alberta scenic travel destinations",
     body: [
-      "Alberta packs Rockies views, badlands history, and vibrant cities into one province—plan at least a week if you want Banff time plus Edmonton or Calgary.",
+      "Alberta packs Rockies views, badlands history, and vibrant cities into one province, plan at least a week if you want Banff time plus Edmonton or Calgary.",
       "Lake Louise, Jasper, Drumheller, and Waterton each deserve a dedicated day. Groups often pair hotel stays with one coach for inter-city legs.",
       "Use our guides to estimate drive times, then request a charter quote when you are ready to move everyone together.",
     ],
@@ -121,7 +121,7 @@ export const blogPosts: BlogPost[] = [
     imageSrc: siteMedia.services.charterCoach,
     imageAlt: "Charter bus rental in Alberta",
     body: [
-      "Charter pricing reflects distance, season, vehicle size, and how long the coach is with you—not just headcount.",
+      "Charter pricing reflects distance, season, vehicle size, and how long the coach is with you, not just headcount.",
       "Look for licensed operators, clear quotes, and coaches maintained for long highway days. Edmonton and Calgary are common start points for provincial routes.",
       "Go Coach Charters walks you through vehicle options, timing, and amenities so your group knows what to expect before departure.",
     ],
@@ -137,13 +137,13 @@ export const blogPosts: BlogPost[] = [
     imageAlt: "Luxury charter motorcoach interior",
     body: [
       "Scheduled transit follows fixed routes and timetables. A charter is booked for your group alone, with pickups and stops you define.",
-      "Motorcoaches typically offer reclining seats, climate control, storage bays, and onboard restrooms on larger units—built for longer trips than city buses.",
+      "Motorcoaches typically offer reclining seats, climate control, storage bays, and onboard restrooms on larger units, built for longer trips than city buses.",
       "That privacy and flexibility is why weddings, corporate retreats, and school outings choose charter service over multiple cars or public transit.",
     ],
   },
   {
     slug: "choosing-the-right-charter-bus-size-for-your-group-alberta-guide",
-    title: "Choosing the Right Charter Bus Size for Your Group – Alberta Guide",
+    title: "Choosing the Right Charter Bus Size for Your Group - Alberta Guide",
     excerpt:
       "Not sure which bus fits your group? Compare mini buses, mid-size coaches and 56-passenger motor coaches. Go Coach Charters serves Edmonton & Alberta.",
     publishedAt: "2026-05-04",
@@ -151,8 +151,8 @@ export const blogPosts: BlogPost[] = [
     imageSrc: siteMedia.fleet.miniCoach,
     imageAlt: "Mini coach and motorcoach fleet options",
     body: [
-      "Mini coaches suit tighter groups and urban routes; full motorcoaches maximize per-person value for 40–56 passengers and long highway days.",
-      "Mid-size options bridge parking constraints at venues with enough seats for medium groups. Share exact passenger counts—including chaperones—when you quote.",
+      "Mini coaches suit tighter groups and urban routes; full motorcoaches maximize per-person value for 40-56 passengers and long highway days.",
+      "Mid-size options bridge parking constraints at venues with enough seats for medium groups. Share exact passenger counts, including chaperones, when you quote.",
       "We help Alberta groups match capacity, luggage, and accessibility needs to the right coach from our fleet.",
     ],
   },

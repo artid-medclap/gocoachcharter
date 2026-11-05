@@ -13,7 +13,7 @@ interface LogoProps {
 export function Logo({ className, inverted = false, linked = true }: LogoProps) {
   const image = (
     <Image
-      src={siteMedia.brand.logo}
+      src={inverted ? siteMedia.brand.logoOnDark : siteMedia.brand.logo}
       height={200}
       width={200}
       alt="GoCoach Charters"

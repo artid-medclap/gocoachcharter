@@ -5,20 +5,24 @@
 export const siteMedia = {
   brand: {
     logo: "/media/brand/logo.webp",
+    logoOnDark: "/media/brand/logo-on-dark.webp",
     busIconWhite: "/media/brand/icon-bus-white.webp",
   },
   home: {
     heroGoCoachBuses: "/media/home/go-coach-buses-webp.webp",
-    /** Homepage hero — Go Coach Prevost on open pavement */
+    /** Homepage hero: Go Coach Prevost on open pavement */
     heroPrevostLot: "/media/home/hero-bus.webp",
     heroPrevostLotMobile: "/media/home/hero-bus-mobile.webp",
+    heroBurgundyRoad: "/media/home/hero-burgundy-road.webp",
     heroFleetWide: "/media/home/hero-fleet-wide.webp",
     heroFleet: "/media/home/hero-fleet.webp",
     heroCityscape: "/media/home/hero-cityscape.webp",
     commitmentFeature: "/media/home/commitment-feature.webp",
     edmontonCalgaryBackground: "/media/home/edmonton-calgary-background.webp",
-    /** Blog index hero — Go Coach Prevost (use distinct filename to avoid stale CDN/browser cache) */
+    /** Blog index hero: Go Coach Prevost (use distinct filename to avoid stale CDN/browser cache) */
     blogHero: "/media/home/blog-hero-coach.webp",
+    estimateShuttle: "/media/home/estimate-shuttle.webp",
+    estimateRoadBus: "/media/home/estimate-road-bus.png",
   },
   blog: {
     tenEventsCharterBusHero: "/media/blog/10-events-charter-bus-hero.png",

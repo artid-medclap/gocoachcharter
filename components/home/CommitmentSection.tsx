@@ -74,14 +74,14 @@ export function CommitmentSection() {
             <Link
               href="/about-us/"
               className={cn(
-                "group mx-auto mt-7 w-full max-w-md sm:mt-8 lg:mx-0 lg:w-auto lg:max-w-none",
+                "group mx-auto mt-7 w-fit whitespace-nowrap sm:mt-8",
                 primaryButtonClass,
-                "min-h-12 px-5 py-3 text-center text-sm sm:px-6"
+                "min-h-10 px-4 py-2 text-center text-xs sm:min-h-11 sm:px-5 sm:text-sm",
               )}
             >
               Learn More About Go Coach Charters
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white/15 transition-transform duration-300 group-hover:translate-x-0.5">
-                <ArrowUpRight className="h-4 w-4" aria-hidden />
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white/15 transition-transform duration-300 group-hover:translate-x-0.5">
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
               </span>
             </Link>
           </div>

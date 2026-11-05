@@ -92,7 +92,7 @@ export function Footer() {
         aria-label="Site footer"
       >
         <Container
-          className="grid gap-10 py-12 sm:py-14 md:grid-cols-2 lg:grid-cols-[1.15fr_0.95fr_0.95fr_1.25fr] lg:gap-10 xl:gap-12"
+          className="grid gap-10 py-12 max-sm:!pl-10 sm:py-14 md:grid-cols-2 lg:grid-cols-[1.15fr_0.95fr_0.95fr_1.25fr] lg:gap-10 xl:gap-12"
         >
           <div>
             <Link href={homeSections.top} className="inline-flex">

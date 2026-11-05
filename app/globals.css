@@ -7,7 +7,7 @@
   --color-body-text: var(--body-text);
 
   /* ========================================
-     PRIMARY — GO COACH BURGUNDY
+     PRIMARY: GO COACH BURGUNDY
      ======================================== */
 
   --color-primary-50: #fdf0f4;
@@ -23,7 +23,7 @@
   --color-primary-950: #38010e;
 
   /* ========================================
-     SECONDARY — WHITE
+     SECONDARY: WHITE
      ======================================== */
 
   --color-secondary-50: #ffffff;
@@ -39,7 +39,7 @@
   --color-secondary-950: #ffffff;
 
   /* ========================================
-     ACCENT — LIGHT BURGUNDY
+     ACCENT: LIGHT BURGUNDY
      ======================================== */
 
   --color-accent-50: #fff6f8;
@@ -267,7 +267,7 @@ body {
     transform: scaleX(1);
   }
 }
-/* Home hero: same overlay layout at every width; mobile keeps the bus on the right. */
+/* Home hero: full-bleed image, no overlay. Shift crop so the bus is not clipped. */
 .home-hero-media {
   position: absolute;
   inset: 0;
@@ -279,34 +279,13 @@ body {
 
 .home-hero img.for_mobile {
   display: block;
-  object-position: 78% 50%;
-}
-
-.home-hero-overlay {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.96) 0%,
-    rgba(0, 0, 0, 0.74) 32%,
-    rgba(0, 0, 0, 0.34) 50%,
-    transparent 66%
-  );
-}
-
-@media (max-width: 767px) {
-  .home-hero-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.78) 0%,
-      rgba(0, 0, 0, 0.62) 42%,
-      rgba(0, 0, 0, 0.72) 100%
-    );
-  }
+  object-position: 88% 70%;
 }
 
 @media (min-width: 768px) {
   .home-hero img.for_web {
     display: block;
-    object-position: 82% 50%;
+    object-position: 90% 72%;
   }
 
   .home-hero img.for_mobile {
