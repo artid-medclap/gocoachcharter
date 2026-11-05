@@ -98,7 +98,7 @@ export function ServicesEstimateCtaSection() {
             Please Share The Calculator Details
           </Badge>
 
-          <h2 className={cn(sectionTitleClass, "mt-8 max-w-[20rem] text-[#610018] sm:max-w-md")}>
+          <h2 className={cn(sectionTitleClass, "mt-8 max-w-[20rem] text-white sm:max-w-md")}>
             Get an Estimate for
             <br />
             Your Charter Bus Rental
