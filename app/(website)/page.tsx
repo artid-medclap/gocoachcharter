@@ -34,7 +34,6 @@ export default function HomePage() {
       <ServicesSection />
       <ServicesEstimateCtaSection />
       <FleetShowcaseSection />
-
       <AmenitiesSection />
       <CustomerReviewsSection />
     </main>

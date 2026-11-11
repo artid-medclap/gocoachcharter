@@ -38,7 +38,7 @@ const SLIDES = [
   },
 ] as const;
 
-const ROTATE_MS = 6500;
+const ROTATE_MS = 2500;
 
 export function HeroSection() {
   const [activeIndex, setActiveIndex] = useState(0);
