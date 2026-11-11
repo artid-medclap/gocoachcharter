@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { Container } from "@/components/shared/Container";
-import { CommitmentSectionCarousel } from "@/components/home/CommitmentSectionCarousel";
+import { CommitmentSectionImage } from "@/components/home/CommitmentSectionImage";
 import { homeSectionMeta } from "@/lib/home-sections";
 import { HomeSection } from "@/components/shared/HomeSection";
 import {
@@ -28,7 +28,7 @@ export function CommitmentSection() {
       <Container className="relative max-w-[90rem]">
         <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <div className="relative isolate min-w-0 w-full">
-            <CommitmentSectionCarousel />
+            <CommitmentSectionImage />
           </div>
 
           <div

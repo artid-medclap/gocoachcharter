@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Container } from "@/components/shared/Container";
 import { homeSections } from "@/data/navigation";
@@ -11,56 +14,118 @@ import { cn } from "@/lib/utils";
 
 export const heroSection = homeSectionMeta.hero;
 
+const SLIDES = [
+  {
+    src: siteMedia.home.heroCarousel.fleet,
+    alt: "Go Coach Charters motorcoaches parked among Alberta pines",
+    position: "object-[center_42%]",
+  },
+  {
+    src: siteMedia.home.heroCarousel.group,
+    alt: "Group travelers gathered in front of a Go Coach Charters coach",
+    position: "object-[center_58%]",
+  },
+  {
+    src: siteMedia.home.heroCarousel.prevost,
+    alt: "Go Coach Charters Prevost motorcoach on an open lot",
+    position: "object-center",
+  },
+  {
+    src: siteMedia.home.heroCarousel.interior,
+    alt: "Luxury charter bus interior with leather seating and ambient lighting",
+    position: "object-center",
+    scale: true,
+  },
+] as const;
+
+const ROTATE_MS = 6500;
+
 export function HeroSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduceMotion(media.matches);
+    sync();
+    media.addEventListener("change", sync);
+    return () => media.removeEventListener("change", sync);
+  }, []);
+
+  useEffect(() => {
+    const onVisibility = () => setIsVisible(!document.hidden);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || !isVisible) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % SLIDES.length);
+    }, ROTATE_MS);
+    return () => window.clearInterval(timer);
+  }, [isVisible, reduceMotion]);
+
   return (
     <section
       id={heroSection.id}
       aria-label={heroSection.name}
-      className="home-hero relative isolate min-h-[min(100svh,42rem)] overflow-hidden bg-[#610018] md:min-h-[calc(100dvh-4rem)]"
+      className="home-hero relative isolate flex min-h-[calc(100svh-4rem)] overflow-hidden bg-[#1a0008]"
     >
-      <div className="home-hero-media">
-        <Image
-          src={siteMedia.home.heroBurgundyRoad}
-          alt="Go Coach Charters Prevost motorcoach"
-          fill
-          priority
-          sizes="(min-width: 768px) 100vw, 0px"
-          className="for_web object-cover"
-        />
-        <Image
-          src={siteMedia.home.heroBurgundyRoad}
-          alt=""
-          width={4200}
-          height={1581}
-          sizes="220vw"
-          className="for_mobile absolute bottom-[-1.5rem] left-[-120vw] h-auto w-[220vw] max-w-none object-contain md:bottom-0"
-        />
+      <div className="absolute inset-0" aria-hidden>
+        {SLIDES.map((slide, index) => (
+          <Image
+            key={slide.src}
+            src={slide.src}
+            alt=""
+            fill
+            priority={index === 0}
+            loading={index === 0 ? "eager" : "lazy"}
+            sizes="100vw"
+            className={cn(
+              "object-cover transition-[opacity,transform] duration-1000 ease-out",
+              slide.position,
+              index === activeIndex ? "opacity-100" : "opacity-0",
+              "scale" in slide && slide.scale ? "scale-110" : null,
+              !reduceMotion && index === activeIndex && !("scale" in slide && slide.scale)
+                ? "scale-105"
+                : null,
+            )}
+          />
+        ))}
       </div>
+
+      <div
+        className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#1a0008]/55 to-black/75"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.28)_70%)]"
+        aria-hidden
+      />
 
       <Container
         className={cn(
-          "home-hero-copy relative z-10 flex min-h-[min(100svh,42rem)] flex-col justify-start md:justify-center",
-          "px-4 pt-[calc(5rem+env(safe-area-inset-top,0px))] pb-28 sm:pt-24 sm:pb-16",
-          "md:min-h-[calc(100dvh-4rem)]",
+          "relative z-10 flex w-full flex-1 flex-col items-center justify-center",
+          "px-4 py-12 text-center sm:px-6 sm:py-16",
         )}
       >
-        <div className="flex w-full max-w-2xl flex-col items-start text-left">
-          <h1 className="w-full text-left">
-            <span className="block text-sm font-medium tracking-[0.02em] text-white sm:text-base md:text-lg">
-              Travel With Go Coach Charters
-            </span>
-            <span
-              className={cn(
-                heroTitleClass,
-                "-ml-[0.16em] mt-3 block text-left !text-[2rem] !leading-[1.08] !tracking-normal !text-white ![text-wrap:pretty] !drop-shadow-none min-[380px]:!text-[2.125rem] sm:mt-4 sm:!text-5xl sm:!leading-[1.1] md:!text-6xl lg:!text-7xl",
-              )}
-            >
-              Group Travel,
-              <br className="sm:hidden" /> Made Easy.
-            </span>
+        <div className="flex w-full max-w-3xl flex-col items-center text-center">
+          <p className="text-sm font-medium tracking-[0.18em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] uppercase sm:text-base">
+            Travel With Go Coach Charters
+          </p>
+
+          <h1
+            className={cn(
+              heroTitleClass,
+              "mt-3 text-center !text-white !leading-[1.08] !tracking-normal ![text-wrap:balance] min-[380px]:!text-[2.125rem] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
+            )}
+          >
+            Group Travel, Made Easy.
           </h1>
 
-          <p className="mt-4 w-full max-w-xl text-left text-sm leading-[1.65] text-white/85 sm:mt-6 sm:text-base sm:leading-7">
+          <p className="mt-4 max-w-2xl text-center text-sm leading-[1.7] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] sm:mt-5 sm:text-base sm:leading-7 md:text-lg">
             From corporate events and school trips to weddings and group adventures, Go Coach
             Charters makes group transportation simple. Let us help you get where you need to go.
           </p>
@@ -68,10 +133,11 @@ export function HeroSection() {
           <Link
             href={homeSections.getStarted}
             className={cn(
-              "group mt-6 inline-flex items-center justify-center gap-2 self-start rounded-full",
-              "min-h-11 px-6 py-2.5 text-sm font-bold sm:mt-8 sm:min-h-12 sm:px-7",
+              "group mt-6 inline-flex items-center justify-center gap-2 rounded-full",
+              "min-h-11 px-7 py-2.5 text-sm font-bold sm:mt-8 sm:min-h-12 sm:px-8 sm:text-base",
               "bg-white text-[#610018] shadow-sm transition-colors duration-200",
-              "border border-transparent hover:border-white hover:bg-[#610018] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
+              "border border-transparent hover:border-white hover:bg-[#610018] hover:text-white",
+              "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
             )}
           >
             Request a Quote
@@ -82,6 +148,10 @@ export function HeroSection() {
           </Link>
         </div>
       </Container>
+
+      <p className="sr-only" aria-live="polite">
+        {SLIDES[activeIndex].alt}
+      </p>
     </section>
   );
 }

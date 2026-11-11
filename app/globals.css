@@ -267,29 +267,4 @@ body {
     transform: scaleX(1);
   }
 }
-/* Home hero: full-bleed image, no overlay. Shift crop so the bus is not clipped. */
-.home-hero-media {
-  position: absolute;
-  inset: 0;
-}
-
-.home-hero img.for_web {
-  display: none;
-}
-
-.home-hero img.for_mobile {
-  display: block;
-  object-position: 88% 70%;
-}
-
-@media (min-width: 768px) {
-  .home-hero img.for_web {
-    display: block;
-    object-position: 90% 72%;
-  }
-
-  .home-hero img.for_mobile {
-    display: none;
-  }
-}
 

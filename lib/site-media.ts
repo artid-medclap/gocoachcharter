@@ -14,6 +14,13 @@ export const siteMedia = {
     heroPrevostLot: "/media/home/hero-bus.webp",
     heroPrevostLotMobile: "/media/home/hero-bus-mobile.webp",
     heroBurgundyRoad: "/media/home/hero-burgundy-road.webp",
+    heroCarousel: {
+      team: "/media/home/hero-carousel-team.webp",
+      fleet: "/media/home/hero-carousel-fleet.webp",
+      group: "/media/home/IMG_6010.webp",
+      prevost: "/media/home/IMG_6022.webp",
+      interior: "/media/home/IMG_5718-HDR.webp",
+    },
     heroFleetWide: "/media/home/hero-fleet-wide.webp",
     heroFleet: "/media/home/hero-fleet.webp",
     heroCityscape: "/media/home/hero-cityscape.webp",
@@ -84,13 +91,7 @@ export const siteMedia = {
     qti: "/media/partners/qti.webp",
   },
   commitment: {
-    carousel: [
-      "/media/commitment/carousel-01.webp",
-      "/media/commitment/carousel-02.webp",
-      "/media/commitment/carousel-03.webp",
-    ] as const,
     servicesCtaBand: "/media/commitment/services-cta-band.webp",
-    video: "/media/videos/commitment.mp4",
   },
   marketing: {
     whySectionCta: "/media/marketing/why-section-cta.webp",

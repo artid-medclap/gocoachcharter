@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowRight, Quote, Star } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 import { Container } from "@/components/shared/Container";
 import { HomeSection } from "@/components/shared/HomeSection";
@@ -16,7 +19,7 @@ const reviewsSearchUrl =
 
 export const customerReviewsSection = homeSectionMeta.reviews;
 
-const displayedReviews = reviews.slice(0, 3);
+const displayedReviews = reviews;
 
 const googleRating = 4.9;
 
@@ -127,6 +130,7 @@ function ReviewCard({
 }) {
   return (
     <article
+      data-review-card
       className={cn(
         "group relative flex h-full min-h-0 flex-col overflow-hidden rounded-2xl border border-primary-100/90 bg-white p-4 shadow-[0_8px_28px_rgba(53,0,20,0.05)] ring-1 ring-inset ring-white transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-[0_14px_36px_rgba(122,1,31,0.08)] sm:p-5",
         className
@@ -168,6 +172,51 @@ function ReviewCard({
 }
 
 export function CustomerReviewsSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const reviewListRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.25 },
+    );
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const motionPreference = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
+    if (!isInView || isPaused || motionPreference.matches) return;
+
+    const timer = window.setInterval(() => {
+      const nextIndex = (activeIndex + 1) % displayedReviews.length;
+      const nextCard =
+        reviewListRef.current?.querySelectorAll<HTMLElement>(
+          "[data-review-card]",
+        )[nextIndex];
+      const firstCard =
+        reviewListRef.current?.querySelector<HTMLElement>("[data-review-card]");
+      if (nextCard && firstCard && reviewListRef.current) {
+        reviewListRef.current.scrollTo({
+          left: nextCard.offsetLeft - firstCard.offsetLeft,
+          behavior: "smooth",
+        });
+      }
+      setActiveIndex(nextIndex);
+    }, 1500);
+
+    return () => window.clearInterval(timer);
+  }, [activeIndex, isInView, isPaused]);
+
   return (
     <HomeSection
       id={customerReviewsSection.id}
@@ -190,6 +239,7 @@ export function CustomerReviewsSection() {
         />
 
         <div
+          ref={sectionRef}
           className="mx-auto mt-10 max-w-6xl rounded-[32px] bg-gradient-to-br from-primary-100/40 via-white to-surface-blush p-[1px] shadow-[0_24px_64px_rgba(53,0,20,0.08)] sm:mt-14"
         >
           <div
@@ -216,10 +266,24 @@ export function CustomerReviewsSection() {
             </aside>
 
             <div
-              className="grid min-w-0 flex-1 auto-rows-fr items-stretch gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3"
+              ref={reviewListRef}
+              aria-label="Customer reviews"
+              className="flex min-w-0 flex-1 snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-4"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onFocusCapture={() => setIsPaused(true)}
+              onBlurCapture={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) {
+                  setIsPaused(false);
+                }
+              }}
             >
               {displayedReviews.map((review) => (
-                <ReviewCard key={review.id} review={review} />
+                <ReviewCard
+                  key={review.id}
+                  review={review}
+                  className="w-full shrink-0 snap-start sm:w-[calc((100%-1rem)/2)] xl:w-[calc((100%-2rem)/3)]"
+                />
               ))}
             </div>
           </div>

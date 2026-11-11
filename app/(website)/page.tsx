@@ -30,20 +30,13 @@ export default function HomePage() {
     <main className="flex min-w-0 flex-col overflow-x-clip bg-white">
       <JsonLd data={homePageJsonLd} />
       <HeroSection />
-      {/* <TrustedPartnersSection /> */}
       <CommitmentSection />
-      {/* <WhyChooseCharterSection /> */}
       <ServicesSection />
       <ServicesEstimateCtaSection />
       <FleetShowcaseSection />
 
-      {/* <SafetySection /> */}
-      {/* <BookingStepsSection /> */}
       <AmenitiesSection />
-      <FeaturedRoutesSection />
       <CustomerReviewsSection />
-      {/* <GallerySection /> */}
-      {/* <FaqSection /> */}
     </main>
   );
 }
