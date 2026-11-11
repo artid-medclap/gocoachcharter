@@ -86,7 +86,7 @@ export function HeroSection() {
     <section
       id={heroSection.id}
       aria-label={heroSection.name}
-      className="home-hero relative isolate flex min-h-[calc(100svh-4rem)] overflow-hidden bg-[#1a0008]"
+      className="home-hero relative isolate flex min-h-[100svh] overflow-hidden bg-[#1a0008]"
     >
       <div className="absolute inset-0" aria-hidden>
         {SLIDES.map((slide, index) => (
@@ -123,30 +123,28 @@ export function HeroSection() {
       <Container
         className={cn(
           "relative z-10 flex w-full flex-1 flex-col items-center justify-center",
-          "px-4 py-12 text-center sm:px-6 sm:py-16",
+          "px-4 pt-24 pb-10 text-center sm:px-6 sm:py-16",
         )}
       >
-        <div className="flex w-full max-w-3xl flex-col items-center text-center">
-          <p className="text-sm font-medium tracking-[0.18em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] uppercase sm:text-base">
+        <div className="flex w-full max-w-[20rem] flex-col items-center text-center sm:max-w-3xl">
+          <p className="max-w-[16rem] text-xs leading-5 font-medium tracking-[0.16em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] uppercase sm:max-w-none sm:text-base sm:leading-normal sm:tracking-[0.18em]">
             Travel With Go Coach Charters
           </p>
 
           <h1
             className={cn(
               heroTitleClass,
-              "mt-3 text-center !text-white !leading-[1.08] !tracking-normal ![text-wrap:balance] min-[380px]:!text-[2.125rem] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
+              "mt-3 text-center !text-[1.875rem] !text-white !leading-[1.08] !tracking-normal ![text-wrap:balance] min-[380px]:!text-[2.125rem] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
             )}
           >
             Group Travel, Made Easy.
           </h1>
 
-        
-
           <Link
             href={homeSections.getStarted}
             className={cn(
               "group mt-6 inline-flex items-center justify-center gap-2 rounded-full",
-              "min-h-11 px-7 py-2.5 text-sm font-bold sm:mt-8 sm:min-h-12 sm:px-8 sm:text-base",
+              "min-h-12 w-full max-w-[18rem] px-5 py-2.5 text-sm font-bold sm:mt-8 sm:w-auto sm:max-w-none sm:px-8 sm:text-base",
               "bg-white text-[#610018] shadow-sm transition-colors duration-200",
               "border border-transparent hover:border-white hover:bg-[#610018] hover:text-white",
               "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",

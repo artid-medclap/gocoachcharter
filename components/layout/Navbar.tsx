@@ -12,7 +12,12 @@ import { contactPhone, homeSections, mainNav } from "@/data/navigation";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+interface NavbarProps {
+  isHome: boolean;
+  isOverlay: boolean;
+}
+
+export function Navbar({ isHome, isOverlay }: NavbarProps) {
   const pathname = usePathname();
   const { isOpen, toggle, close } = useMobileMenu();
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -28,9 +33,18 @@ export function Navbar() {
   }, []);
 
   return (
-    <div className="border-b border-primary-100/80 bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md">
+    <div
+      className={cn(
+        "transition-[background-color,border-color,box-shadow] duration-300",
+        isHome
+          ? isOverlay && !isOpen
+            ? "bg-transparent shadow-none"
+            : "bg-[#7a011f] shadow-[0_4px_24px_rgba(53,0,20,0.2)]"
+          : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md",
+      )}
+    >
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Logo />
+        <Logo inverted={isHome} />
 
         <nav className="hidden items-center gap-8 lg:flex text-md">
           {mainNav.map((item) => {
@@ -51,8 +65,12 @@ export function Navbar() {
                     className={cn(
                       "group/nav relative flex items-center gap-1 py-2 text-md font-medium transition-colors",
                       active || openDropdown
-                        ? "text-primary-600"
-                        : "text-foreground hover:text-primary-600",
+                        ? isHome
+                          ? "text-white"
+                          : "text-primary-600"
+                        : isHome
+                          ? "text-white/90 hover:text-white"
+                          : "text-foreground hover:text-primary-600",
                     )}
                     aria-expanded={openDropdown}
                   >
@@ -66,7 +84,7 @@ export function Navbar() {
                     <span
                       className={cn(
                         "absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-300",
-                        "bg-primary-600",
+                        isHome ? "bg-white" : "bg-primary-600",
                         active || openDropdown ? "w-full" : "w-0 group-hover/nav:w-full",
                       )}
                     />
@@ -105,15 +123,19 @@ export function Navbar() {
                 className={cn(
                   "group/nav relative py-2 text-md font-medium transition-colors",
                   active
-                    ? "text-primary-600"
-                    : "text-foreground hover:text-primary-600",
+                    ? isHome
+                      ? "text-white"
+                      : "text-primary-600"
+                    : isHome
+                      ? "text-white/90 hover:text-white"
+                      : "text-foreground hover:text-primary-600",
                 )}
               >
                 {item.label}
                 <span
                   className={cn(
                     "absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-300",
-                    "bg-primary-600",
+                    isHome ? "bg-white" : "bg-primary-600",
                     active ? "w-full" : "w-0 group-hover/nav:w-full",
                   )}
                 />
@@ -127,7 +149,7 @@ export function Navbar() {
             href={contactPhone.href}
             className={cn(
               "flex items-center gap-2 text-md font-semibold transition-colors",
-              "text-foreground hover:text-primary-600",
+              isHome ? "text-white hover:text-white/80" : "text-foreground hover:text-primary-600",
             )}
           >
             <Phone className="h-4 w-4" />
@@ -137,7 +159,10 @@ export function Navbar() {
           <Button
             href={homeSections.getStarted}
             size="sm"
-            className="border border-transparent hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]"
+            className={cn(
+              "border border-transparent hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]",
+              isHome && "!border-white !bg-white !text-[#610018] hover:!border-white hover:!bg-white/90",
+            )}
           >
             Get A Quote
           </Button>
@@ -148,7 +173,7 @@ export function Navbar() {
           onClick={toggle}
           className={cn(
             "flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden",
-            "border-border text-foreground",
+            isHome ? "border-white/60 text-white" : "border-border text-foreground",
           )}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
