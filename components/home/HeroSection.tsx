@@ -15,12 +15,7 @@ import { cn } from "@/lib/utils";
 export const heroSection = homeSectionMeta.hero;
 
 const SLIDES = [
-  {
-    src: siteMedia.home.heroCarousel.fleet,
-    alt: "Go Coach Charters motorcoaches parked among Alberta pines",
-    position: "object-[center_42%]",
-  },
-  {
+   {
     src: siteMedia.home.heroCarousel.group,
     alt: "Group travelers gathered in front of a Go Coach Charters coach",
     position: "object-[center_58%]",
@@ -30,12 +25,32 @@ const SLIDES = [
     alt: "Go Coach Charters Prevost motorcoach on an open lot",
     position: "object-center",
   },
+   {
+    src: siteMedia.home.heroCarousel.fleet,
+    alt: "Go Coach Charters motorcoaches parked among Alberta pines",
+    position: "object-[center_42%]",
+  },
   {
     src: siteMedia.home.heroCarousel.interior,
     alt: "Luxury charter bus interior with leather seating and ambient lighting",
     position: "object-center",
     scale: true,
   },
+  {
+    src: siteMedia.home.heroCarousel.fleetLot,
+    alt: "Go Coach Charters buses parked together in an open lot",
+    position: "object-center",
+  },
+  {
+    src: siteMedia.home.heroCarousel.fleetWide,
+    alt: "Go Coach Charters fleet wide view",
+    position: "object-center",
+  },
+  {
+    src: siteMedia.home.heroCarousel.teamslot,
+    alt: "Go Coach Charters Prevost motorcoach parked in an open lot",
+    position: "object-center",
+  }
 ] as const;
 
 const ROTATE_MS = 2500;
@@ -76,7 +91,7 @@ export function HeroSection() {
       <div className="absolute inset-0" aria-hidden>
         {SLIDES.map((slide, index) => (
           <Image
-            key={slide.src}
+            key={slide.alt}
             src={slide.src}
             alt=""
             fill
