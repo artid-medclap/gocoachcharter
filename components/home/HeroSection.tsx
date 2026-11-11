@@ -127,9 +127,9 @@ export function HeroSection() {
         )}
       >
         <div className="flex w-full max-w-[20rem] flex-col items-center text-center sm:max-w-3xl">
-          <p className="max-w-[16rem] text-xs leading-5 font-medium tracking-[0.16em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] uppercase sm:max-w-none sm:text-base sm:leading-normal sm:tracking-[0.18em]">
+          {/* <p className="max-w-[16rem] text-xs leading-5 font-medium tracking-[0.16em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] uppercase sm:max-w-none sm:text-base sm:leading-normal sm:tracking-[0.18em]">
             Travel With Go Coach Charters
-          </p>
+          </p> */}
 
           <h1
             className={cn(
@@ -137,7 +137,8 @@ export function HeroSection() {
               "mt-3 text-center !text-[1.875rem] !text-white !leading-[1.08] !tracking-normal ![text-wrap:balance] min-[380px]:!text-[2.125rem] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
             )}
           >
-            Group Travel, Made Easy.
+            Go Far. Go Near.
+            <span className="block text-white">Go Coach.</span>
           </h1>
 
           <Link
@@ -156,8 +157,29 @@ export function HeroSection() {
               aria-hidden
             />
           </Link>
+
         </div>
       </Container>
+
+      <div
+        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center justify-center gap-2"
+        role="group"
+        aria-label="Choose hero image"
+      >
+        {SLIDES.map((slide, index) => (
+          <button
+            key={slide.alt}
+            type="button"
+            onClick={() => setActiveIndex(index)}
+            aria-label={`Show image ${index + 1}: ${slide.alt}`}
+            aria-current={index === activeIndex ? "true" : undefined}
+            className={cn(
+              "h-2 rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
+              index === activeIndex ? "w-6 bg-white" : "w-2 bg-white/60 hover:bg-white/90",
+            )}
+          />
+        ))}
+      </div>
 
       <p className="sr-only" aria-live="polite">
         {SLIDES[activeIndex].alt}
