@@ -125,10 +125,7 @@ export function HeroSection() {
             Group Travel, Made Easy.
           </h1>
 
-          <p className="mt-4 max-w-2xl text-center text-sm leading-[1.7] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] sm:mt-5 sm:text-base sm:leading-7 md:text-lg">
-            From corporate events and school trips to weddings and group adventures, Go Coach
-            Charters makes group transportation simple. Let us help you get where you need to go.
-          </p>
+        
 
           <Link
             href={homeSections.getStarted}
