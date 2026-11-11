@@ -138,7 +138,7 @@ export function HeroSection() {
             )}
           >
             Go Far. Go Near.
-            <span className="block text-white">Go Coach.</span>
+            <span className="block text-white">Go Coach Charters.</span>
           </h1>
 
           <Link
