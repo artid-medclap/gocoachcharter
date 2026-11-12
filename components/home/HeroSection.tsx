@@ -134,7 +134,7 @@ export function HeroSection() {
           <h1
             className={cn(
               heroTitleClass,
-              "mt-3 text-center !text-[44px] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
+              "mt-3 text-center !text-[40px] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
             )}
           >
             Go Far. Go Near.
