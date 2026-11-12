@@ -10,7 +10,11 @@ function subscribeToScroll(onStoreChange: () => void) {
   return () => window.removeEventListener("scroll", onStoreChange);
 }
 
-function getIsPastSecondSection() {
+function getIsScrolled() {
+  if (window.matchMedia("(max-width: 639px)").matches) {
+    return window.scrollY > 0;
+  }
+
   const secondSection = document.getElementById("commitment");
   return secondSection !== null && secondSection.getBoundingClientRect().top <= 64;
 }
@@ -24,7 +28,7 @@ export function Header() {
   const isHome = pathname === "/";
   const isScrolled = useSyncExternalStore(
     subscribeToScroll,
-    getIsPastSecondSection,
+    getIsScrolled,
     getServerScrollSnapshot,
   );
 

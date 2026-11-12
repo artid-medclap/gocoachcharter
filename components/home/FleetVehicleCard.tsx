@@ -6,9 +6,9 @@ import Link from "next/link";
 import {
   ArrowRight,
   Armchair,
-  Bath,
   Luggage,
   Snowflake,
+  Toilet,
   Usb,
   Users,
   Wifi,
@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 
 const AMENITY_META: Record<FleetAmenityId, { icon: LucideIcon; label: string }> = {
   climate: { icon: Snowflake, label: "Climate Control" },
-  restroom: { icon: Bath, label: "Onboard Restroom" },
+  restroom: { icon: Toilet, label: "Onboard Restroom" },
   overhead: { icon: Luggage, label: "Overhead Storage" },
   wifi: { icon: Wifi, label: "Wi-Fi" },
   outlets: { icon: Zap, label: "110 Power Outlets" },

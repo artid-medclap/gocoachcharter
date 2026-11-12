@@ -134,7 +134,7 @@ export function HeroSection() {
           <h1
             className={cn(
               heroTitleClass,
-              "mt-3 text-center !text-[clamp(1.875rem,9vw,2.25rem)] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
+              "mt-3 text-center !text-[44px] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
             )}
           >
             Go Far. Go Near.
@@ -148,8 +148,8 @@ export function HeroSection() {
             className={cn(
               "group mt-8 inline-flex min-h-11 w-auto max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold",
               "sm:mt-8 sm:min-h-12 sm:px-8 sm:text-base",
-              "bg-white text-[#610018] shadow-sm transition-colors duration-200",
-              "border border-transparent hover:border-white hover:bg-[#610018] hover:text-white",
+              "bg-primary-900 text-white shadow-sm transition-colors duration-200 sm:bg-white sm:text-[#610018]",
+              "border border-transparent hover:border-white hover:bg-primary-800 hover:text-white sm:hover:bg-[#610018]",
               "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
             )}
           >
