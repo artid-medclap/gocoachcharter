@@ -1,11 +1,11 @@
 import {
   Armchair,
-  Bath,
   Coffee,
   Luggage,
   MapPinCheck,
   MonitorPlay,
   Snowflake,
+  Toilet,
   Wifi,
   Zap,
   type LucideIcon,
@@ -21,7 +21,7 @@ import { homeSectionMeta } from "@/lib/home-sections";
 
 const ONBOARD_FEATURES: { icon: LucideIcon; title: string }[] = [
   { icon: Snowflake, title: "Climate Control" },
-  { icon: Bath, title: "Onboard Restrooms" },
+  { icon: Toilet, title: "Onboard Restrooms" },
   { icon: Luggage, title: "Overhead Luggage Storage" },
   { icon: Zap, title: "110 Power Outlets" },
   { icon: Wifi, title: "Wi-Fi" },
@@ -46,7 +46,7 @@ function FeatureSet({ duplicate = false }: { duplicate?: boolean }) {
         >
           <article className="group flex w-full flex-col items-center gap-2 text-center">
             <span
-              className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full border border-primary-100 bg-white text-primary-900 shadow-[0_8px_22px_rgba(88,0,33,0.1)] ring-1 ring-white transition-colors duration-300 group-hover:border-primary-200 group-hover:bg-[#7a011f] group-hover:text-white sm:h-20 sm:w-20 lg:h-[5.5rem] lg:w-[5.5rem]"
+              className="flex h-[4.5rem] w-[4.5rem] items-center justify-center rounded-full border border-primary-100 bg-white text-primary-900 shadow-[0_8px_22px_rgba(88,0,33,0.1)] ring-1 ring-white transition-colors duration-300 group-hover:border-primary-200 group-hover:bg-primary-900 group-hover:text-white sm:h-20 sm:w-20 lg:h-[5.5rem] lg:w-[5.5rem]"
             >
               <Icon
                 className="h-9 w-9 sm:h-8 sm:w-8 lg:h-9 lg:w-9"

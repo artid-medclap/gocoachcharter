@@ -126,7 +126,7 @@ export function HeroSection() {
           "px-4 pt-24 pb-10 text-center sm:px-6 sm:py-16",
         )}
       >
-        <div className="flex w-full max-w-[20rem] flex-col items-center text-center sm:max-w-3xl">
+        <div className="flex w-full max-w-[22rem] flex-col items-center text-center sm:max-w-3xl">
           {/* <p className="max-w-[16rem] text-xs leading-5 font-medium tracking-[0.16em] text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.65)] uppercase sm:max-w-none sm:text-base sm:leading-normal sm:tracking-[0.18em]">
             Travel With Go Coach Charters
           </p> */}
@@ -134,18 +134,20 @@ export function HeroSection() {
           <h1
             className={cn(
               heroTitleClass,
-              "mt-3 text-center !text-[1.875rem] !text-white !leading-[1.08] !tracking-normal ![text-wrap:balance] min-[380px]:!text-[2.125rem] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
+              "mt-3 text-center !text-[clamp(1.875rem,9vw,2.25rem)] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
             )}
           >
             Go Far. Go Near.
-            <span className="block text-white">Go Coach Charters.</span>
+            <span className="block whitespace-nowrap text-primary-200">
+              Go Coach Charters
+            </span>
           </h1>
 
           <Link
             href={homeSections.getStarted}
             className={cn(
-              "group mt-6 inline-flex items-center justify-center gap-2 rounded-full",
-              "min-h-12 w-full max-w-[18rem] px-5 py-2.5 text-sm font-bold sm:mt-8 sm:w-auto sm:max-w-none sm:px-8 sm:text-base",
+              "group mt-8 inline-flex min-h-11 w-auto max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold",
+              "sm:mt-8 sm:min-h-12 sm:px-8 sm:text-base",
               "bg-white text-[#610018] shadow-sm transition-colors duration-200",
               "border border-transparent hover:border-white hover:bg-[#610018] hover:text-white",
               "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
@@ -161,7 +163,7 @@ export function HeroSection() {
         </div>
       </Container>
 
-      <div
+      {/* <div
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center justify-center gap-2"
         role="group"
         aria-label="Choose hero image"
@@ -179,7 +181,7 @@ export function HeroSection() {
             )}
           />
         ))}
-      </div>
+      </div> */}
 
       <p className="sr-only" aria-live="polite">
         {SLIDES[activeIndex].alt}

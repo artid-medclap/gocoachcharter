@@ -221,7 +221,7 @@ export function CustomerReviewsSection() {
     <HomeSection
       id={customerReviewsSection.id}
       sectionName={customerReviewsSection.name}
-      tone="blush"
+      tone="muted"
       decorated
       className="overflow-hidden"
     >
