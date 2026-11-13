@@ -63,7 +63,7 @@ export function ServicesSection() {
           wide
           title={
             <span className={sectionTitleStackClass}>
-              <span className="block text-foreground">Charter Bus Services</span>
+              <span className="block text-[#38010E]">Charter Bus Services</span>
               <SectionTitleAccent>For Every Kind of Group</SectionTitleAccent>
             </span>
           }
