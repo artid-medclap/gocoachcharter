@@ -36,13 +36,13 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
   return (
     <div
       className={cn(
-        "transition-[background-color,border-color,box-shadow] duration-300",
+        "transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
         isHome
           ? isOverlay && !isOpen
             ? "bg-transparent shadow-none"
             : isOverlayHeader
               ? "bg-primary-800 shadow-[0_4px_24px_rgba(53,0,20,0.2)]"
-              : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md"
+              : "bg-white/20 shadow-[0_4px_24px_rgba(53,0,20,0.08)] backdrop-blur-xl"
           : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md",
       )}
     >
