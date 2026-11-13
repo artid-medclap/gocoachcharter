@@ -6,8 +6,9 @@ import { Badge } from "@/components/shared/Badge";
 import { Container } from "@/components/shared/Container";
 import { homeSections } from "@/data/navigation";
 import { siteMedia } from "@/lib/site-media";
-import { sectionTitleClass } from "@/lib/typography";
+import { sectionTitleClass, sectionTitleStackClass } from "@/lib/typography";
 import { cn } from "@/lib/utils";
+import { SectionHeading, SectionTitleAccent } from "../shared/SectionHeading";
 
 export function ServicesEstimateCtaSection() {
   return (
@@ -67,13 +68,23 @@ export function ServicesEstimateCtaSection() {
               Please Share The Calculator Details
             </Badge>
 
-            <h2 className={cn(sectionTitleClass, "mt-8 max-w-[35rem] text-[#610018] lg:text-[2.5rem]")}>
-              Get an Estimate for
-              <br />
-              Your Charter Bus Rental
-            </h2>
 
-            <p className="mt-2 max-w-md text-xs leading-5 text-black sm:text-sm sm:leading-6">
+            <SectionHeading
+              align="left"
+              className=" py-5 mx-auto w-full text-center lg:mx-0 lg:text-left"
+              headingClassName="text-center lg:text-left"
+              title={
+                <span className={sectionTitleStackClass}>
+                  <span className="block">Get An Estimate For</span>
+                  {/* <span className="block">Charter Bus Company</span> */}
+                  <SectionTitleAccent>
+
+                    Your Charter Bus Rental</SectionTitleAccent>
+                </span>
+              }
+            />
+
+            <p className="mt-2 max-w-md text-xs leading-5 text-black sm:text-sm sm:leading-6 lg:text-base lg:leading-7">
               Enter your trip details to get an estimated charter bus rental cost based on your
               travel distance, trip duration, and number of buses.
             </p>
