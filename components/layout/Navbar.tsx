@@ -20,6 +20,7 @@ interface NavbarProps {
 export function Navbar({ isHome, isOverlay }: NavbarProps) {
   const pathname = usePathname();
   const { isOpen, toggle, close } = useMobileMenu();
+  const isOverlayHeader = isHome && isOverlay;
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -39,12 +40,14 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
         isHome
           ? isOverlay && !isOpen
             ? "bg-transparent shadow-none"
-            : "bg-[#7a011f] shadow-[0_4px_24px_rgba(53,0,20,0.2)]"
+            : isOverlayHeader
+              ? "bg-primary-800 shadow-[0_4px_24px_rgba(53,0,20,0.2)]"
+              : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md"
           : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md",
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Logo inverted={isHome} />
+        <Logo inverted={isOverlayHeader} />
 
         <nav className="hidden items-center gap-8 lg:flex text-md">
           {mainNav.map((item) => {
@@ -65,10 +68,10 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
                     className={cn(
                       "group/nav relative flex items-center gap-1 py-2 text-md font-medium transition-colors",
                       active || openDropdown
-                        ? isHome
+                        ? isOverlayHeader
                           ? "text-white"
                           : "text-primary-600"
-                        : isHome
+                        : isOverlayHeader
                           ? "text-white/90 hover:text-white"
                           : "text-foreground hover:text-primary-600",
                     )}
@@ -84,7 +87,7 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
                     <span
                       className={cn(
                         "absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-300",
-                        isHome ? "bg-white" : "bg-primary-600",
+                        isOverlayHeader ? "bg-white" : "bg-primary-600",
                         active || openDropdown ? "w-full" : "w-0 group-hover/nav:w-full",
                       )}
                     />
@@ -123,10 +126,10 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
                 className={cn(
                   "group/nav relative py-2 text-md font-medium transition-colors",
                   active
-                    ? isHome
+                    ? isOverlayHeader
                       ? "text-white"
                       : "text-primary-600"
-                    : isHome
+                    : isOverlayHeader
                       ? "text-white/90 hover:text-white"
                       : "text-foreground hover:text-primary-600",
                 )}
@@ -135,7 +138,7 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
                 <span
                   className={cn(
                     "absolute -bottom-0.5 left-0 h-0.5 rounded-full transition-all duration-300",
-                    isHome ? "bg-white" : "bg-primary-600",
+                    isOverlayHeader ? "bg-white" : "bg-primary-600",
                     active ? "w-full" : "w-0 group-hover/nav:w-full",
                   )}
                 />
@@ -149,7 +152,7 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
             href={contactPhone.href}
             className={cn(
               "flex items-center gap-2 text-md font-semibold transition-colors",
-              isHome ? "text-white hover:text-white/80" : "text-foreground hover:text-primary-600",
+              isOverlayHeader ? "text-white hover:text-white/80" : "text-foreground hover:text-primary-600",
             )}
           >
             <Phone className="h-4 w-4" />
@@ -161,7 +164,7 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
             size="sm"
             className={cn(
               "border border-transparent hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]",
-              isHome && "!border-white !bg-white !text-[#610018] hover:!border-white hover:!bg-white/90",
+              isOverlayHeader && "!border-white !bg-white !text-[#610018] hover:!border-white hover:!bg-white/90",
             )}
           >
             Get A Quote
@@ -173,7 +176,7 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
           onClick={toggle}
           className={cn(
             "flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden",
-            isHome ? "border-white/60 text-white" : "border-border text-foreground",
+            isOverlayHeader ? "border-white/60 text-white" : "border-border text-foreground",
           )}
           aria-label="Toggle menu"
           aria-expanded={isOpen}

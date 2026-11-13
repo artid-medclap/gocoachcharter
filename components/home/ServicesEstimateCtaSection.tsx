@@ -20,13 +20,21 @@ export function ServicesEstimateCtaSection() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right-bottom lg:object-fill"
+        className="hidden object-cover object-right-bottom lg:block"
         priority
+      />
+
+      <Image
+        src={siteMedia.home.estimateRoadBusMobile}
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-bottom lg:hidden"
       />
 
       <div
         aria-hidden
-        className="absolute inset-0 z-[1] bg-[#610018]/70 lg:hidden"
+        className="absolute inset-0 z-[1] bg-[#610018]/60 lg:hidden"
       />
 
       <svg
@@ -34,19 +42,19 @@ export function ServicesEstimateCtaSection() {
         viewBox="0 0 64 86"
         className="pointer-events-none absolute left-[32%] bottom-[11%] z-10 hidden h-[6.25rem] w-[4.75rem] lg:block"
       >
-        <defs>
+        {/* <defs>
           <radialGradient id="estimate-pin-body" cx="34%" cy="28%" r="72%">
             <stop offset="0%" stopColor="#d13a52" />
             <stop offset="48%" stopColor="#9a1633" />
             <stop offset="100%" stopColor="#610018" />
           </radialGradient>
-        </defs>
+        </defs> */}
         <ellipse cx="32" cy="82.5" rx="11" ry="3.2" fill="rgba(0,0,0,0.2)" />
         <path
           d="M32 80S6 48 6 30a26 26 0 1 1 52 0c0 18-26 50-26 50Z"
           fill="url(#estimate-pin-body)"
         />
-        <circle cx="32" cy="28" r="10.5" fill="white" />
+        {/* <circle cx="32" cy="28" r="10.5" fill="white" /> */}
       </svg>
 
       <Container className="relative z-10 hidden h-full lg:block">
@@ -73,7 +81,7 @@ export function ServicesEstimateCtaSection() {
             <Link
               href={homeSections.getStarted}
               className={cn(
-                "group mt-5 inline-flex min-h-10 items-center justify-center gap-2 rounded-full",
+                "group mt-3 inline-flex min-h-10 items-center justify-center gap-2 rounded-full",
                 "bg-[#610018] px-5 py-2.5 text-xs font-bold text-white sm:text-sm",
                 "border border-transparent transition-colors duration-200 hover:border-[#610018] hover:bg-white hover:text-[#610018]",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#610018]",
@@ -112,7 +120,7 @@ export function ServicesEstimateCtaSection() {
           <Link
             href={homeSections.getStarted}
             className={cn(
-              "group mt-8 inline-flex min-h-12 w-full max-w-xs items-center justify-center gap-2 rounded-full",
+              "group mt-2 inline-flex min-h-12 w-full max-w-xs items-center justify-center gap-2 rounded-full",
               "bg-[#610018] px-6 py-3 text-sm font-bold text-white",
               "border border-white/40 transition-colors duration-200 hover:border-white hover:bg-white hover:text-[#610018]",
             )}

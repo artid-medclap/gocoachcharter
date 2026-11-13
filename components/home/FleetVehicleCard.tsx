@@ -26,7 +26,7 @@ const AMENITY_META: Record<FleetAmenityId, { icon: LucideIcon; label: string }> 
   overhead: { icon: Luggage, label: "Overhead Storage" },
   wifi: { icon: Wifi, label: "Wi-Fi" },
   outlets: { icon: Zap, label: "110 Power Outlets" },
-  recline: { icon: Armchair, label: "Reclining Seats" },
+  recline: { icon: Armchair, label: " Plush Reclining Seats" },
   usb: { icon: Usb, label: "USB Port" },
 };
 

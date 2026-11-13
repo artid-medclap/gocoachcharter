@@ -32,7 +32,8 @@ export const siteMedia = {
     /** Blog index hero: Go Coach Prevost (use distinct filename to avoid stale CDN/browser cache) */
     blogHero: "/media/home/blog-hero-coach.webp",
     estimateShuttle: "/media/home/estimate-shuttle.webp",
-    estimateRoadBus: "/media/home/estimate-road-bus.png",
+    estimateRoadBus: "/media/home/estimate-road-bus-updated.png",
+    estimateRoadBusMobile: "/media/home/estimate-road-bus-mobile.png",
   },
   blog: {
     tenEventsCharterBusHero: "/media/blog/10-events-charter-bus-hero.png",
