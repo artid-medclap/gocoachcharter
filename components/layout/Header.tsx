@@ -11,7 +11,7 @@ function subscribeToScroll(onStoreChange: () => void) {
 }
 
 function getIsScrolled() {
-  if (window.matchMedia("(max-width: 639px)").matches) {
+  if (window.matchMedia("(max-width: 1023px)").matches) {
     return window.scrollY > 0;
   }
 
