@@ -28,7 +28,7 @@ const ONBOARD_FEATURES: { icon: LucideIcon; title: string }[] = [
   { icon: Coffee, title: "Cup Holders" },
   { icon: MonitorPlay, title: "Multi Screen Entertainment System" },
   { icon: MapPinCheck, title: "Live Bus Tracking with ETA" },
-  { icon: Armchair, title: "Plus Reclining Seat " },
+  { icon: Armchair, title: "Plush Reclining Seat " },
 ];
 
 export const amenitiesSection = homeSectionMeta.amenities;
