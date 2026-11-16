@@ -137,9 +137,9 @@ export function HeroSection() {
               "mt-3 text-center !text-[40px] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
             )}
           >
-            Go Far. Go Near.
+            Charter Bus Rentals
             <span className="block whitespace-nowrap text-primary-200">
-              Go Coach Charters
+              Across Alberta
             </span>
           </h1>
 
