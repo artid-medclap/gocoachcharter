@@ -22,7 +22,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         isOpen ? "max-h-[calc(100dvh-4rem)]" : "max-h-0"
       )}
     >
-      <nav className="flex flex-col px-4 py-5">
+      <nav className="flex min-h-full flex-col px-4 py-5">
         {mainNav.map((item) =>
           item.children ? (
             <div key={item.label}>
@@ -66,22 +66,24 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           )
         )}
 
-        <a
-          href={contactPhone.href}
-          onClick={onClose}
-          className="mt-2 flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-surface-muted"
-        >
-          <Phone className="h-4 w-4" />
-          {contactPhone.label}
-        </a>
+        <div className="mt-auto">
+          <a
+            href={contactPhone.href}
+            onClick={onClose}
+            className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-foreground hover:bg-surface-muted"
+          >
+            <Phone className="h-4 w-4" />
+            {contactPhone.label}
+          </a>
 
-        <Button
-          href={homeSections.getStarted}
-          className="mt-2 w-full"
-          onClick={onClose}
-        >
-          Get A Quote
-        </Button>
+          <Button
+            href={homeSections.getStarted}
+            className="mt-2 w-full"
+            onClick={onClose}
+          >
+            Get A Quote
+          </Button>
+        </div>
       </nav>
     </div>
   );
