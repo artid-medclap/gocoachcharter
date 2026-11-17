@@ -17,6 +17,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
   return (
     <div
+      data-mobile-menu
       className={cn(
         "fixed inset-x-0 top-16 z-50 h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-b border-border bg-background transition-[max-height] duration-300 ease-in-out lg:hidden",
         isOpen ? "max-h-[calc(100dvh-4rem)]" : "max-h-0"

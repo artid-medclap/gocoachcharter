@@ -34,22 +34,26 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
   }, []);
 
   return (
-    <div
-      className={cn(
-        "transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
-        isHome
-          ? isOverlay && !isOpen
-            ? "bg-transparent shadow-none"
-            : isOverlayHeader
-              ? "bg-primary-800 shadow-[0_4px_24px_rgba(53,0,20,0.2)]"
-              : "bg-white/20 shadow-[0_4px_24px_rgba(53,0,20,0.08)] backdrop-blur-xl"
-          : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md",
-      )}
-    >
-      <Container className="flex h-16 items-center justify-between gap-4">
-        <Logo inverted={isOverlayHeader} />
+    <>
+      <div
+        className={cn(
+          "transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
+          isOpen && "fixed inset-x-0 top-0 z-50 lg:static",
+          isHome
+            ? isOverlay && !isOpen
+              ? "bg-transparent shadow-none"
+              : isOverlayHeader
+                ? "bg-primary-800 shadow-[0_4px_24px_rgba(53,0,20,0.2)]"
+                : isOpen
+                  ? "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.08)] backdrop-blur-xl"
+                  : "bg-white/20 shadow-[0_4px_24px_rgba(53,0,20,0.08)] backdrop-blur-xl"
+            : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md",
+        )}
+      >
+        <Container className="flex h-16 items-center justify-between gap-4">
+          <Logo inverted={isOverlayHeader} />
 
-        <nav className="hidden items-center gap-8 lg:flex text-md">
+          <nav className="hidden items-center gap-8 lg:flex text-md">
           {mainNav.map((item) => {
             const active = pathname === item.href;
 
@@ -145,9 +149,9 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
               </Link>
             );
           })}
-        </nav>
+          </nav>
 
-        <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-6 lg:flex">
           <a
             href={contactPhone.href}
             className={cn(
@@ -169,23 +173,24 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
           >
             Get A Quote
           </Button>
-        </div>
+          </div>
 
-        <button
-          type="button"
-          onClick={toggle}
-          className={cn(
-            "flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden",
-            isOverlayHeader ? "border-white/60 text-white" : "border-border text-foreground",
-          )}
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
-      </Container>
+          <button
+            type="button"
+            onClick={toggle}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden",
+              isOverlayHeader ? "border-white/60 text-white" : "border-border text-foreground",
+            )}
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </Container>
+      </div>
 
       <MobileMenu isOpen={isOpen} onClose={close} />
-    </div>
+    </>
   );
 }
