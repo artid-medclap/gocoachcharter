@@ -10,7 +10,7 @@ export const CONTACT_EMAIL = "info@gocoach.ca";
 export const CONTACT_PHONE = "+1 780-238-3866";
 
 export const CONTACT_ADDRESS = {
-  line: "2016 Sherwood Dr, Sherwood Park, AB T8A 3X3, Canada",
+  line: "144, 10466 Fulton drive, Acheson, AB T7X 6A1",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=2016+Sherwood+Dr,+Sherwood+Park,+AB+T8A+3X3,+Canada",
   embedUrl:
