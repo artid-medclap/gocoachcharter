@@ -79,7 +79,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
           <Button
             href={homeSections.getStarted}
-            className="mt-2 w-full"
+            size="sm"
+            className="mt-2 h-12 w-full"
             onClick={onClose}
           >
             Get A Quote

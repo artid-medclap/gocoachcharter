@@ -92,7 +92,7 @@ export function ServicesEstimateCtaSection() {
             <Link
               href={homeSections.getStarted}
               className={cn(
-                "group mt-3 inline-flex min-h-10 items-center justify-center gap-2 rounded-full",
+                "group mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-full",
                 "bg-[#610018] px-5 py-2.5 text-xs font-bold text-white sm:text-sm",
                 "border border-transparent transition-colors duration-200 hover:border-[#610018] hover:bg-white hover:text-[#610018]",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#610018]",

@@ -167,7 +167,7 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
             href={homeSections.getStarted}
             size="sm"
             className={cn(
-              "border border-transparent hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]",
+              "h-12 border border-transparent hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]",
               isOverlayHeader && "!border-white !bg-white !text-[#610018] hover:!border-white hover:!bg-white/90",
             )}
           >
