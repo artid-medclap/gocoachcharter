@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ChevronDown, Phone } from "lucide-react";
+import { ChevronDown, ChevronRight, Phone } from "lucide-react";
 import { Button } from "@/components/shared/Button";
 import { contactPhone, homeSections, mainNav } from "@/data/navigation";
 import { cn } from "@/lib/utils";
@@ -18,34 +18,34 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   return (
     <div
       className={cn(
-        "overflow-hidden border-b border-border bg-background transition-[max-height] duration-300 ease-in-out lg:hidden",
-        isOpen ? "max-h-[36rem]" : "max-h-0"
+        "fixed inset-x-0 top-16 z-50 h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-b border-border bg-background transition-[max-height] duration-300 ease-in-out lg:hidden",
+        isOpen ? "max-h-[calc(100dvh-4rem)]" : "max-h-0"
       )}
     >
-      <nav className="flex flex-col gap-1 px-4 py-4">
+      <nav className="flex flex-col px-4 py-5">
         {mainNav.map((item) =>
           item.children ? (
             <div key={item.label}>
               <button
                 type="button"
                 onClick={() => setOpenDropdown((prev) => !prev)}
-                className="flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-foreground hover:bg-surface-muted"
+                className="flex min-h-14 w-full items-center justify-between px-3 text-lg font-bold text-foreground"
                 aria-expanded={openDropdown}
               >
                 {item.label}
-                <ChevronDown
-                  className={cn("h-4 w-4 transition-transform", openDropdown && "rotate-180")}
+                <ChevronRight
+                  className={cn("h-5 w-5 transition-transform", openDropdown && "rotate-90")}
                 />
               </button>
 
               {openDropdown && (
-                <div className="ml-3 flex flex-col gap-1 border-l border-border pl-3">
+                <div className="ml-3 flex flex-col border-l border-border pl-3">
                   {item.children.map((child) => (
                     <Link
                       key={child.label}
                       href={child.href}
                       onClick={onClose}
-                      className="rounded-lg px-3 py-2 text-sm text-foreground hover:bg-surface-muted"
+                      className="px-3 py-2.5 text-sm text-foreground"
                     >
                       {child.label}
                     </Link>
@@ -58,9 +58,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               key={item.label}
               href={item.href}
               onClick={onClose}
-              className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground hover:bg-surface-muted"
+              className="flex min-h-14 items-center justify-between px-3 text-lg font-bold text-foreground"
             >
               {item.label}
+              <ChevronRight className="h-5 w-5" aria-hidden />
             </Link>
           )
         )}

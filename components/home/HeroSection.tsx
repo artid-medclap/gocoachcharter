@@ -134,7 +134,7 @@ export function HeroSection() {
           <h1
             className={cn(
               heroTitleClass,
-              "mt-3 text-center !text-[40px] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
+              "mt-3 text-center !text-[44px] !text-white !leading-[1.1] !tracking-normal ![text-wrap:balance] sm:mt-4 sm:!text-5xl md:!text-6xl lg:!text-7xl",
             )}
           >
             Charter Bus Rentals
@@ -146,7 +146,7 @@ export function HeroSection() {
           <Link
             href={homeSections.getStarted}
             className={cn(
-              "group mt-8 inline-flex min-h-11 w-auto max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-sm font-bold",
+              "group mt-8 inline-flex min-h-11 w-auto max-w-full items-center justify-center gap-2 rounded-full px-6 py-2.5 text-base font-bold",
               "sm:mt-8 sm:min-h-12 sm:px-8 sm:text-base",
               "bg-primary-900 text-white shadow-sm transition-colors duration-200 sm:bg-white sm:text-[#610018]",
               "border border-transparent hover:border-white hover:bg-primary-800 hover:text-white sm:hover:bg-[#610018]",

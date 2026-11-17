@@ -76,7 +76,7 @@ export function CommitmentSection() {
               className={cn(
                 "group mx-auto mt-7 w-fit whitespace-nowrap sm:mt-8",
                 primaryButtonClass,
-                "min-h-10 px-4 py-2 text-center text-xs sm:min-h-11 sm:px-5 sm:text-sm",
+                "min-h-12 px-4 py-2 text-center text-xs sm:min-h-14 sm:px-6 sm:text-sm",
               )}
             >
               Learn More About Go Coach Charters
