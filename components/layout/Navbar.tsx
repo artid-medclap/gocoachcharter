@@ -20,7 +20,7 @@ interface NavbarProps {
 export function Navbar({ isHome, isOverlay }: NavbarProps) {
   const pathname = usePathname();
   const { isOpen, toggle, close } = useMobileMenu();
-  const isOverlayHeader = isHome && isOverlay;
+  const isOverlayHeader = isHome && isOverlay && !isOpen;
   const [openDropdown, setOpenDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -38,16 +38,13 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
       <div
         className={cn(
           "transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300",
-          isOpen && "fixed inset-x-0 top-0 z-50 lg:static",
-          isHome
-            ? isOverlay && !isOpen
-              ? "bg-transparent shadow-none"
-              : isOverlayHeader
-                ? "bg-primary-800 shadow-[0_4px_24px_rgba(53,0,20,0.2)]"
-                : isOpen
-                  ? "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.08)] backdrop-blur-xl"
-                  : "bg-white/20 shadow-[0_4px_24px_rgba(53,0,20,0.08)] backdrop-blur-xl"
-            : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md",
+          isOpen
+            ? "fixed inset-x-0 top-0 z-50 bg-white border-b border-border shadow-xs"
+            : isHome
+              ? isOverlay
+                ? "bg-transparent shadow-none"
+                : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.08)] backdrop-blur-xl"
+              : "bg-white/95 shadow-[0_4px_24px_rgba(53,0,20,0.04)] backdrop-blur-md",
         )}
       >
         <Container className="flex h-16 items-center justify-between gap-4">
@@ -155,19 +152,19 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
           <a
             href={contactPhone.href}
             className={cn(
-              "flex items-center gap-2 text-md font-semibold transition-colors",
+              "inline-flex shrink-0 items-center gap-2 text-md font-semibold whitespace-nowrap transition-colors",
               isOverlayHeader ? "text-white hover:text-white/80" : "text-foreground hover:text-primary-600",
             )}
           >
-            <Phone className="h-4 w-4" />
-            {contactPhone.label}
+            <Phone className="h-4 w-4 shrink-0" />
+            <span className="whitespace-nowrap">Call Now</span>
           </a>
 
           <Button
             href={homeSections.getStarted}
             size="sm"
             className={cn(
-              "h-12 border border-transparent hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]",
+              "h-12 border border-transparent whitespace-nowrap hover:!border-[#610018] hover:!bg-white hover:!text-[#610018]",
               isOverlayHeader && "!border-white !bg-white !text-[#610018] hover:!border-white hover:!bg-white/90",
             )}
           >
@@ -175,18 +172,34 @@ export function Navbar({ isHome, isOverlay }: NavbarProps) {
           </Button>
           </div>
 
-          <button
-            type="button"
-            onClick={toggle}
-            className={cn(
-              "flex h-10 w-10 items-center justify-center rounded-lg border lg:hidden",
-              isOverlayHeader ? "border-white/60 text-white" : "border-border text-foreground",
-            )}
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          <div className="flex shrink-0 items-center gap-2 sm:gap-2.5 lg:hidden">
+            <a
+              href={contactPhone.href}
+              className={cn(
+                "inline-flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold whitespace-nowrap transition-colors shadow-xs",
+                isOverlayHeader
+                  ? "border border-white/40 bg-white/20 text-white hover:bg-white/30"
+                  : "border border-primary-200 bg-primary-50 text-[#610018] hover:bg-primary-100",
+              )}
+              aria-label="Call Now"
+            >
+              <Phone className="h-3.5 w-3.5 shrink-0 fill-current" />
+              <span className="whitespace-nowrap">Call Now</span>
+            </a>
+
+            <button
+              type="button"
+              onClick={toggle}
+              className={cn(
+                "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border",
+                isOverlayHeader ? "border-white/60 text-white" : "border-border text-foreground",
+              )}
+              aria-label="Toggle menu"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
+          </div>
         </Container>
       </div>
 
