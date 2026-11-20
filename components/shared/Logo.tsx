@@ -10,20 +10,20 @@ interface LogoProps {
   linked?: boolean;
 }
 
-export function Logo({ className, linked = true }: LogoProps) {
+export function Logo({ className, inverted = false, linked = true }: LogoProps) {
   const image = (
     <Image
-      src={siteMedia.brand.logo}
+      src={inverted ? siteMedia.brand.logoOnDark : siteMedia.brand.logo}
       height={200}
       width={200}
       alt="GoCoach Charters"
-      priority
-      className={cn("h-8 sm:h-9 md:h-10 w-auto object-contain", className)}
+      className={cn("h-10 sm:h-11 lg:h-12 w-auto object-contain", className)}
     />
   );
 
   const wrapperClass = cn(
-    "inline-flex shrink-0 items-center justify-center rounded-xl bg-white px-2.5 py-1 sm:px-3 sm:py-1.5 shadow-xs transition-opacity hover:opacity-95"
+    "flex items-center gap-3 text-lg font-bold tracking-tight",
+    inverted ? "text-white" : "text-foreground"
   );
 
   if (!linked) {
